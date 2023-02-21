@@ -93,8 +93,11 @@ const Gameboard = (() => {
   const win = function (player1, player2) {
     if (winCon()) {
       let audio = new Audio("elprimosoundeffectmp3.mp3");
+      let audio2 = new Audio("El Primo Bara Bara.mp3")
       audio.volume = 0.05;
+      audio2.volume = 0.05;
       audio.play();
+      audio2.play()
       retry.style.display = "block";
       winner = player1.turn ? player2 : player1;
       displayWinner(winner.name);
