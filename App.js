@@ -92,7 +92,7 @@ const Gameboard = (() => {
   };
   const win = function (player1, player2) {
     if (winCon()) {
-      let audio = new Audio("sad.mp3");
+      let audio = new Audio("elprimosoundeffectmp3.mp3");
       audio.volume = 0.05;
       audio.play();
       retry.style.display = "block";
