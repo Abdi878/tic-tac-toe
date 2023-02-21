@@ -1,60 +1,60 @@
-*{
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body,html{
-    min-height: 100%;
+body,
+html {
+  min-height: 100%;
 }
-body{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    background-image: url(elprimo.jpg);
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-image: url(elprimo.jpg);
 }
-.container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    height: 600px;
-    width: 600px;
-    background-color: white;
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 600px;
+  width: 600px;
+  background-color: white;
+}
+.box {
+  border: solid blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  width: 200px;
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: permMarker;
+  color: red;
+}
 
-}
-.box{
-    border: solid blue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
-    width: 200px;
-    font-size: 3rem;
-    font-weight: bold;
-    font-family:permMarker;
-    color: red;
-
-}
-
-.header{
-   font-size: 2rem;
-   font-family: permMarker;
+.header {
+  font-size: 2rem;
+  font-family: permMarker;
 }
 
 @font-face {
-    font-family: permMarker;
-    src: url(PermanentMarker-Regular.ttf);
+  font-family: permMarker;
+  src: url(PermanentMarker-Regular.ttf);
 }
 
-.retry{
-    min-height: 20px;
-    min-width: 100px;
-    display: none;
+.retry {
+  min-height: 40px;
+  min-width: 200px;
+  display: none;
+  border-radius: 20px;
 }
-.display{
-    font-size: 2rem;
+.display {
+  font-size: 2rem;
 }
 
-.box:hover{
-    background-color: rgb(216, 249, 249);
+.box:hover {
+  background-color: rgb(216, 249, 249);
 }
