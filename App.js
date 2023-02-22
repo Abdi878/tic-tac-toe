@@ -3,16 +3,16 @@ const Gameboard = (() => {
   let board = [];
   const retry = document.querySelector(".retry");
   const clear = () => {
-    const boxList = document.querySelectorAll(".box")
+    const boxList = document.querySelectorAll(".box");
     boxList.forEach((box) => (box.innerHTML = ""));
     board = [];
     retry.style.display = "none";
-    display.innerText=""
-    playGame()
+    display.innerText = "";
+    playGame();
   };
-  const addToBoard = function(e){
-    if(!winCon()) board[e.target.dataset.place] = e.target.innerText
-  }
+  const addToBoard = function (e) {
+    if (!winCon()) board[e.target.dataset.place] = e.target.innerText;
+  };
 
   const winCon = function () {
     if (board[0] == board[4] && board[4] == board[8]) {
@@ -70,49 +70,50 @@ const Gameboard = (() => {
   const changePlayer = function (e, player1, player2) {
     player1.turn ? (player1.turn = false) : (player1.turn = true);
     player2.turn ? (player2.turn = false) : player2.turn - true;
-    player1.turn ? (e.target.style.color = "blue") : (e.target.style.color = "red");
+    player1.turn
+      ? (e.target.style.color = "blue")
+      : (e.target.style.color = "red");
   };
-
 
   const addMark = function (player1, player2) {
     const clicky = (e) => {
-      if(!winCon()){
-      if (e.target.innerText == "" ) {
-        player1.turn
-          ? (e.target.innerText = player1.marker)
-          : (e.target.innerText = player2.marker);
-        
-        changePlayer(e,player1,player2)
-        addToBoard(e)
+      if (!winCon()) {
+        if (e.target.innerText == "") {
+          player1.turn
+            ? (e.target.innerText = player1.marker)
+            : (e.target.innerText = player2.marker);
+
+          changePlayer(e, player1, player2);
+          addToBoard(e);
+        }
+        win(player1, player2);
+        draw();
       }
-      win(player1,player2)
-      draw()}
     };
-    boxes.addEventListener("click", clicky,);
+    boxes.addEventListener("click", clicky);
   };
   const win = function (player1, player2) {
     if (winCon()) {
       let audio = new Audio("elprimosoundeffectmp3.mp3");
-      let audio2 = new Audio("El Primo Bara Bara.mp3")
+      let audio2 = new Audio("ElPrimoBaraBara.mp3");
       audio.volume = 0.05;
       audio2.volume = 0.05;
       audio.play();
-      audio2.play()
+      audio2.play();
       retry.style.display = "block";
       winner = player1.turn ? player2 : player1;
       displayWinner(winner.name);
-      winner.wins+=1
-      console.log(winner.wins)
+      winner.wins += 1;
+      console.log(winner.wins);
     }
   };
-  const draw = function(){
-    let boardLength = board.filter(elem=>elem!="").length
-    if(boardLength==9 && !winCon()){
-      display.innerText = `It is a tie!`
-      retry.style.display = "block"
+  const draw = function () {
+    let boardLength = board.filter((elem) => elem != "").length;
+    if (boardLength == 9 && !winCon()) {
+      display.innerText = `It is a tie!`;
+      retry.style.display = "block";
     }
-
-  }
+  };
   const playGame = function () {
     addMark(player1, player2);
   };
